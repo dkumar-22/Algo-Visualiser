@@ -12,7 +12,6 @@ import { animatePath, setVisualizationState } from "../../visualizers";
 import { recursiveDivisionMaze, randomMaze } from "../../maze-algorithms";
 import AppNavbar from "../AppNavbar/AppNavbar";
 import ErrorModal from "../../components/ErrorModal/ErrorModal";
-import TooltipExampleMulti from "../../components/ToolTip/ToolTip";
 import Legend from "../Legend/Legend";
 
 // constants - initial coordinates for start and finish nodes
@@ -28,7 +27,6 @@ class PathVisualizer extends Component {
     isPathNotFound: false,
     visitedNodes: 0,
     shortestNodes: 0,
-    tooltipOpen: false,
     isVisualizing: false,
     mainIsPressed: "",
     startNode_Pos: [START_NODE_ROW, START_NODE_COL],
@@ -41,11 +39,6 @@ class PathVisualizer extends Component {
     let grid = getInitialGrid(startNode_Pos, finishNode_Pos);
     this.setState({ grid });
   }
-
-  // tool tip toggle
-  toggle = () => {
-    this.setState({ tooltipOpen: !this.state.tooltipOpen });
-  };
 
   /*-------------------------------------------------------------mouse events--------------------------------------------------------------- */
   // handling mouse events to set up walls
@@ -358,7 +351,6 @@ class PathVisualizer extends Component {
 
     return (
       <>
-        <TooltipExampleMulti />
         {this.state.isPathNotFound ? <ErrorModal /> : null}
         <AppNavbar
           handleDijkstra={this.visualizeDijkstra}
