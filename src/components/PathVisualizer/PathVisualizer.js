@@ -9,7 +9,6 @@ import {
   astar,
 } from "../../algorithms";
 import { animatePath, setVisualizationState } from "../../visualizers";
-import { recursiveDivisionMaze, randomMaze } from "../../maze-algorithms";
 import AppNavbar from "../AppNavbar/AppNavbar";
 import ErrorModal from "../../components/ErrorModal/ErrorModal";
 import Legend from "../Legend/Legend";
@@ -130,7 +129,7 @@ class PathVisualizer extends Component {
     try {
       const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
       const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-      if (nodesInShortestPathOrder.length === 1) console.log("Not Possible");
+      if (nodesInShortestPathOrder.length === 1) throw new Text("Not Possible");
       this.setState({
         shortestNodes: nodesInShortestPathOrder.length,
         visitedNodes: visitedNodesInOrder.length,
@@ -230,7 +229,7 @@ class PathVisualizer extends Component {
       const visitedNodesInOrder = astar(grid, startNode, finishNode);
       const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
       if (nodesInShortestPathOrder.length === 1) {
-        console.log("Not Possible");
+        throw new Text("Not Possible");
       }
       this.setState({
         shortestNodes: nodesInShortestPathOrder.length,
@@ -291,27 +290,6 @@ class PathVisualizer extends Component {
     }
     const newGrid = getGridWithoutPath(this.state.grid);
     this.setState({ grid: newGrid, visitedNodes: 0, shortestNodes: 0 });
-  };
-
-  /*----------------------------------------------------------maze generations functions---------------------------------------------------------*/
-  generateRecursiveDivisionMaze = () => {
-    if (this.state.isVisualizing) return;
-    this.setState({ isVisualizing: true });
-    const { grid, startNode_Pos, finishNode_Pos } = this.state;
-    const startNode = grid[startNode_Pos[0]][startNode_Pos[1]];
-    const finishNode = grid[finishNode_Pos[0]][finishNode_Pos[1]];
-    const walls = recursiveDivisionMaze(grid, startNode, finishNode);
-    this.animateWalls(walls, grid);
-  };
-
-  generateRandomMaze = () => {
-    if (this.state.isVisualizing) return;
-    this.setState({ isVisualizing: true });
-    const { grid, startNode_Pos, finishNode_Pos } = this.state;
-    const startNode = grid[startNode_Pos[0]][startNode_Pos[1]];
-    const finishNode = grid[finishNode_Pos[0]][finishNode_Pos[1]];
-    const walls = randomMaze(grid, startNode, finishNode);
-    this.animateWalls(walls, grid);
   };
 
   animateWalls = (walls, grid) => {

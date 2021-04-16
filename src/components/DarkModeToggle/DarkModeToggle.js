@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import "./DarkModeToggle.scss"
 
 const CheckedIcon = () => <>🌜</>;
 const UncheckedIcon = () => <>🌞</>;
 
-const DarkModeToggle = (props) => {
+const DarkModeToggle = ({ defaultChecked, onChange, disabled, className ,icons}) => {
 
     const [toggle, setToggle] = useState(false);
-    const { defaultChecked, onChange, disabled, className } = props;
 
     useEffect(() => {
         if (defaultChecked) {
@@ -30,7 +28,7 @@ const DarkModeToggle = (props) => {
     }
 
     const getIcon = (type) => {
-        const { icons } = props;
+        
         if ( ! icons ) {
             return null;
         }
@@ -76,20 +74,6 @@ DarkModeToggle.defaultProps = {
         checked: <CheckedIcon />, 
         unchecked: <UncheckedIcon />
     }
-};
-
-DarkModeToggle.propTypes = {
-    disabled: PropTypes.bool,
-    defaultChecked: PropTypes.bool,
-    className: PropTypes.string,
-    onChange: PropTypes.func,
-    icons: PropTypes.oneOfType([
-        PropTypes.bool,
-        PropTypes.shape({
-            checked: PropTypes.node,
-            unchecked: PropTypes.node
-        })
-    ])
 };
 
 export default DarkModeToggle;
