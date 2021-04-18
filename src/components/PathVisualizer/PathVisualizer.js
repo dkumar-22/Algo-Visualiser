@@ -337,8 +337,6 @@ class PathVisualizer extends Component {
           handleAstar={this.visualizeAstar}
           handleClearPath={this.clearPath}
           handleClearGrid={this.clearGrid}
-          handleMaze={this.generateRecursiveDivisionMaze}
-          handleRandomMaze={this.generateRandomMaze}
           handleVisualization={this.setVisualization}
           visitedNodes={visitedNodes}
           shortestNodes={shortestNodes}

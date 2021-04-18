@@ -2,8 +2,7 @@ import React from 'react';
 import { Progress } from "reactstrap";
 import "./ProgressBar.scss";
 
-const ProgressBar = (props) => {
-    const { visitedNodes, shortestNodes } = props;
+const ProgressBar = ({ visitedNodes, shortestNodes }) => {
     return ( 
         <div>
             <div className="visited-nodes-bar">

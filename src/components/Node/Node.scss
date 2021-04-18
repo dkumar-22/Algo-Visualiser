@@ -36,9 +36,6 @@ $laptop: 769px;
 
 .node-wall {
     background-color: black;
-    /*background: url("../../images/tie-fighter-1.png");
-    background: url("../../images/asteroid.jfif");
-    background-size: cover;*/
 }
 
 .node-animated-wall {
@@ -78,7 +75,6 @@ $laptop: 769px;
   }
 }
 
-// animation credits - Clement' original project
 .node-visited {
   animation-name: visitedAnimation;
   animation-duration: 1.5s;

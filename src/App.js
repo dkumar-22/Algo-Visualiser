@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import PathVisualizer from './components/PathVisualizer/PathVisualizer';
 
-class App extends Component {
-  render() { 
-    return (
-      <PathVisualizer />
-    );
-  }
+function App() {
+    return <PathVisualizer />
 }
  
 export default App;
