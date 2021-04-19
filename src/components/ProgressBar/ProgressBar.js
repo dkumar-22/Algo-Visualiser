@@ -5,11 +5,11 @@ import "./ProgressBar.scss";
 const ProgressBar = ({ visitedNodes, shortestNodes }) => {
     return ( 
         <div>
-            <div className="visited-nodes-bar">
+            <div className="visited-nodes-bar sn">
                 visited nodes: {visitedNodes}
                 <Progress value={(visitedNodes / 800)*100} color="danger" />
             </div>
-            <div className="shortest-nodes-bar">
+            <div className="shortest-nodes-bar sn">
                 shortest path: {shortestNodes}
                 <Progress value={(shortestNodes / 800)*100} color="success" />
             </div>

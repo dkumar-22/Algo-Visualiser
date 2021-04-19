@@ -29,18 +29,20 @@ const AppNavbar = ({
   handleAstar,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [algo,setAlgo] = useState("");
   const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Path Visualizer</NavbarBrand>
+        <NavbarBrand className="sn" href="/">
+          Path Visualizer
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret className="sn">
                 Algorithms
               </DropdownToggle>
               <DropdownMenu right>
@@ -49,7 +51,9 @@ const AppNavbar = ({
                     onClick={() => {
                       handleDijkstra();
                       handleVisualization();
+                      setAlgo("Dijkstra")
                     }}
+                    className="sn"
                   >
                     Dijkstra
                   </Button>
@@ -59,7 +63,9 @@ const AppNavbar = ({
                     onClick={() => {
                       handleDFS();
                       handleVisualization();
+                      setAlgo("DFS")
                     }}
+                    className="sn"
                   >
                     DFS
                   </Button>
@@ -69,7 +75,9 @@ const AppNavbar = ({
                     onClick={() => {
                       handleBFS();
                       handleVisualization();
+                      setAlgo("BFS")
                     }}
+                    className="sn"
                   >
                     BFS
                   </Button>
@@ -79,13 +87,16 @@ const AppNavbar = ({
                     onClick={() => {
                       handleAstar();
                       handleVisualization();
+                      setAlgo("A*")
                     }}
+                    className="sn"
                   >
                     A*
                   </Button>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            <NavbarBrand className="sn nt"><b style={{color:"white"}}>{algo}</b></NavbarBrand>
           </Nav>
         </Collapse>
         <NavbarText>
@@ -96,8 +107,12 @@ const AppNavbar = ({
         </NavbarText>
         <NavbarText className="clear-functions">
           <ButtonGroup>
-            <Button onClick={handleClearPath}>Clear Path</Button>
-            <Button onClick={handleClearGrid}>Clear Grid</Button>
+            <Button onClick={handleClearPath} className="btnl sn">
+              Clear Path
+            </Button>
+            <Button onClick={handleClearGrid} className="sn">
+              Clear Grid
+            </Button>
           </ButtonGroup>
         </NavbarText>
         <NavbarText>

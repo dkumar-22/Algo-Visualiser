@@ -4,6 +4,10 @@
     width: 25px;
 }
 
+.sn {
+    font-family: 'Courier Prime', monospace;
+}
+
 .target-node {
     background-color: red;
     height: 25px;

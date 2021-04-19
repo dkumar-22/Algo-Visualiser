@@ -19,6 +19,6 @@ code {
 }
 .LightMode {
     transition: all 0.50s linear;
-    background-color: white;
+    background-color: rgb(201, 200, 200);
     color: black;
 }

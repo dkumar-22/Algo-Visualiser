@@ -391,7 +391,7 @@ const getInitialGrid = (startNode_Pos, finishNode_Pos) => {
   // const finishNode_Pos = [10, 35];
   for (let row = 0; row < 20; row++) {
     const currRow = [];
-    for (let col = 0; col < 40; col++) {
+    for (let col = 0; col < 50; col++) {
       //  previously I had it as 20*50
       currRow.push(createNode(row, col, startNode_Pos, finishNode_Pos));
     }
